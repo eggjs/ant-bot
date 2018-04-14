@@ -16,7 +16,7 @@ function replyNeedReproduce(on) {
         owner: payload.repository.owner.login,
         repo: payload.repository.name,
         number: payload.issue.number,
-        body: format(comment[repo], { user: payload.issue.user.login }),
+        body: format(comment, { user: payload.issue.user.login }),
       });
     }
   });
