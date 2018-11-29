@@ -8,7 +8,7 @@ function matchKeyword(title, body) {
 }
 
 function replyEventStream(on) {
-  on('issues_opened', async ({ payload }) => {
+  on('issues_opened', ({ payload }) => {
     if (matchKeyword(payload.issue.title, payload.issue.body)) {
       const content = 'Duplicated #3238';
 
