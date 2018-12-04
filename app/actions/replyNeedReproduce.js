@@ -1,7 +1,9 @@
+'use strict';
+
 const format = require('string-template');
 const { commentIssue } = require('../../lib/github');
 
-const matchedLabel = ['Need Reproduce', 'need-more-information', 'not follow template'];
+const matchedLabel = [ 'Need Reproduce', 'need-more-information', 'not follow template' ];
 const comment = `
 Hello @{user}. Please provide a reproducible example by creating a github repo.
 

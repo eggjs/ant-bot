@@ -1,3 +1,5 @@
+'use strict';
+
 const format = require('string-template');
 const { commentIssue } = require('../../lib/github');
 const { mentioned } = require('../../lib/utils');

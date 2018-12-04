@@ -1,3 +1,5 @@
+'use strict';
+
 const { commentIssue, closeIssue } = require('../../lib/github');
 
 // https://github.com/eggjs/egg/issues/3238

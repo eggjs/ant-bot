@@ -1,3 +1,5 @@
+'use strict';
+
 const { verifySignature } = require('../../lib/utils');
 const githubEvent = require('../githubEvent');
 

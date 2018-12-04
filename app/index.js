@@ -1,3 +1,5 @@
+'use strict';
+
 require('./setup');
 const Koa = require('koa');
 const Router = require('koa-router');

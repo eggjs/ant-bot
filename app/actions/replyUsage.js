@@ -1,3 +1,5 @@
+'use strict';
+
 const format = require('string-template');
 const { commentIssue, closeIssue } = require('../../lib/github');
 const { USAGE, QUESTION } = require('../label');
@@ -11,7 +13,7 @@ or [CNode](https://cnodejs.org).";
 
 function replyUsage(on) {
   on('issues_labeled', ({ payload }) => {
-    if ([USAGE, QUESTION].includes(payload.label.name)) {
+    if ([ USAGE, QUESTION ].includes(payload.label.name)) {
       commentIssue({
         owner: payload.repository.owner.login,
         repo: payload.repository.name,

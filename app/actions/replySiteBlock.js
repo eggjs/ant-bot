@@ -1,6 +1,8 @@
+'use strict';
+
 const { commentIssue, closeIssue } = require('../../lib/github');
 
-const keyword1 = ['官网', '网站', 'eggjs.org'];
+const keyword1 = [ '官网', '网站', 'eggjs.org' ];
 
 const keyword2 = [
   '挂了',

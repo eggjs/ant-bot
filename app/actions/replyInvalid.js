@@ -1,3 +1,5 @@
+'use strict';
+
 const format = require('string-template');
 const { commentIssue, closeIssue, getMembers, addLabels } = require('../../lib/github');
 const { isIssueValid } = require('../../lib/utils');
@@ -8,8 +10,10 @@ Hello @{user}, your issue has been closed because it does not conform to our \
 issue requirements. Please use the [Issue Helper](http://new-issue.ant.design?repo={repo}) \
 to create an issue, thank you!';
 
+'use strict';
+
 let members = [];
-const repos = ['ant-design'];
+const repos = [ 'ant-design' ];
 
 function replyInvalid(on) {
   getMembers((error, res) => {
@@ -40,7 +44,7 @@ function replyInvalid(on) {
         owner: payload.repository.owner.login,
         repo: payload.repository.name,
         number: payload.issue.number,
-        labels: ['Invalid'],
+        labels: [ 'Invalid' ],
       });
     }
   });
