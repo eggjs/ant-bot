@@ -19,10 +19,14 @@ const commnet = `
 function checkActive(issue) {
   const INACTIVE_LABEL = 'Inactive';
   const NEED_REPRODUCE_LABEL = 'Need Reproduce';
+  const PROPOSALS = 'type: proposals';
   const MAX_AGE_DAYS = 30;
   const NEED_REPRODUCE_MAX_AGE_DAYS = 7;
+
   const age = new Duration(new Date() - new Date(issue.updated_at));
-  if (age.days() > MAX_AGE_DAYS) {
+  const labels = issue.labels.map(l => l.name);
+
+  if (age.days() > MAX_AGE_DAYS && !labels.includes(PROPOSALS)) {
     addLabels({
       owner: process.env.GITHUB_OWNER,
       repo,
@@ -30,7 +34,7 @@ function checkActive(issue) {
       labels: [INACTIVE_LABEL],
     });
   }
-  const labels = issue.labels.map(l => l.name);
+
   if (labels.includes(NEED_REPRODUCE_LABEL) && age.days() > NEED_REPRODUCE_MAX_AGE_DAYS) {
     commentIssue({
       owner: process.env.GITHUB_OWNER,
